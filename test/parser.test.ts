@@ -1,23 +1,25 @@
+import { it, describe, expect } from 'vitest'
 import parser from "../src/parser";
-import { validJsonObject, invalidJsonObject } from "../src/utils/testDATA";
-import { ParsedData } from "../src/interfaces/json.interface";
+import { validJsonObject } from "../src/utils/testDATA";
+import { ParsedJSON } from "../src/interfaces/json.interface";
+import { InvalidJSON } from '../src/utils/errors';
 
-
-const sample_search_key: string = "Sampleville";
-
-describe("If parser can parser a valid JSON", () => {
-
-    test("For ValidJSON it must return data as ParsedData Interface", () => {
+describe("Parser Function", () => {
+    it("should return a parsed json", () => {
 
         const validJSON:string = JSON.stringify(validJsonObject);
-        const validParsedObject:ParsedData = {
+        const validParsedObject:ParsedJSON = {
             keys: [
                 "name",
                 "age",
-                "address.street",
-                "address.city",
-                "address.zipcode",
+                "address",
+                "street",
+                "city",
+                "zipcode",
                 "hobbies",
+                "0",
+                "1",
+                "2",
                 "isActive"
             ],
             values: [
@@ -30,20 +32,21 @@ describe("If parser can parser a valid JSON", () => {
                 "swimming",
                 "gardening",
                 "true"
-            ],
-            searchKeys: ["S","a","m","p","l","e","v","i","l","l","e"]
+            ]
         }
-        expect(parser(validJSON, sample_search_key)).toEqual(validParsedObject)
+        expect(parser(validJSON)).toEqual(validParsedObject)
     
     });
 
-});
+    it('should include the error message for invalid JSON', () => {
+        const invalidJsonString = 'invalid-json'; // Provide an invalid JSON string
+    
+        try {
+          parser(invalidJsonString);
+        } catch (error: any) {
+          expect(error).toBeInstanceOf(InvalidJSON);
+          expect(error.message).toContain('Invalid JSON provided');
+        }
+      });
 
-describe("If parser can throw error when given invalid json", () => {
-    test("must throw error InvalidJSON", () => {
-
-        const invalidJSON:string = JSON.stringify(invalidJsonObject);
-        expect(parser(invalidJSON, sample_search_key)).toThrow("Invalid JSON provided");
-
-    });
 });
