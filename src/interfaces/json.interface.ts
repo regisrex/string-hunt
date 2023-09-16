@@ -1,5 +1,4 @@
-export interface ParsedData {
+export interface ParsedJSON {
     keys: string[],
-    values: string[],
-    searchKeys: string[]
+    values: string[]
 }
