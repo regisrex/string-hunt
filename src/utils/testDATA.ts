@@ -9,7 +9,3 @@ export const validJsonObject = {
     "hobbies": ["reading", "swimming", "gardening"],
     "isActive": true
 }
-
-export const invalidJsonObject = {
-  name: "name"
-}

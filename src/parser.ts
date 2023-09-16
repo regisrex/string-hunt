@@ -1,25 +1,34 @@
 import { isJSON } from "valdie";
 import { InvalidJSON } from "./utils/errors";
-import { ParsedData } from "./interfaces/json.interface";
+import { ParsedJSON } from "./interfaces/json.interface";
 
-export default  parser = (jsonString: string, searchKey: string): ParsedData => {
+export default function parser(jsonString: string): ParsedJSON {
+  try {
+    const jsonData = JSON.parse(jsonString);
 
-    const jsonData = JSON.parse(jsonString); // parse json data provided
-
-    // parse provided json string if it's valid JSON
-    if (isJSON(jsonData)) {
-
-        const searchKeyArr:string[] = searchKey.split(""); // split searchKey to get array of characters
-        const dataKeys:string[] = Object.keys(jsonData); // extract all key from json provided
-        const dataValues: string[] = Object.values(jsonData); // extract all values from json provided
-
-        return {
-            keys: dataKeys,
-            values: dataValues,
-            searchKeys: searchKeyArr
-        }
-
-    }else {
-        throw new InvalidJSON("Invalid JSON provided")
+    if (!isJSON(jsonData)) {
+      throw new InvalidJSON("Invalid JSON provided");
     }
+
+    const keys: string[] = [];
+    const values: string[] = [];
+
+    const parseObject = (obj: Record<string, unknown>) => {
+      for (const key in obj) {
+        if (typeof obj[key] === "object" && obj[key] !== null) {
+          keys.push(key);
+          parseObject(obj[key] as Record<string, unknown>);
+        } else {
+          keys.push(key);
+          values.push(String(obj[key]));
+        }
+      }
+    };
+
+    parseObject(jsonData);
+
+    return { keys, values };
+  } catch (error: any) {
+    throw new InvalidJSON("Invalid JSON provided: " + error.message);
+  }
 }
