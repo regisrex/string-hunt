@@ -1,8 +1,8 @@
-import { it, describe, expect } from 'vitest'
-import parser from "../src/parser";
-import { validJsonObject } from "../src/utils/testDATA";
+import { describe, expect, it } from 'vitest';
 import { ParsedJSON } from "../src/interfaces/json.interface";
+import parser from "../src/lib/parser";
 import { InvalidJSON } from '../src/utils/errors';
+import { validJsonObject } from "../src/utils/testDATA";
 
 describe("Parser Function", () => {
     it("should return a parsed json", () => {
@@ -32,7 +32,8 @@ describe("Parser Function", () => {
                 "swimming",
                 "gardening",
                 "true"
-            ]
+            ],
+            valueString: "Alice28123MainStS9am0pl8evi9ll8e12345readingswimminggardeningtrue"
         }
         expect(parser(validJSON)).toEqual(validParsedObject)
     
