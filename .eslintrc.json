@@ -16,8 +16,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "double"],
-        "no-unused-vars": "error"
+        "no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "off"
     }
 }

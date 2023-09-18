@@ -14,8 +14,10 @@
   ],
   "author": "Murangwa Pacifique && Ndizihiwe Regis",
   "scripts": {
-    "build": "jest && tsc",
-    "test": "jest",
+    "build": "vitest && tsc",
+    "test": "vitest --coverage --no-watch",
+    "test:dev": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
     "prepare": "husky install",
     "lint": "eslint . --ext .ts --fix"
   },
@@ -25,12 +27,12 @@
     "valdie": "^0.1.2"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.4",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
+    "@vitest/coverage-v8": "^0.34.4",
     "eslint": "^8.49.0",
     "husky": "^8.0.3",
-    "jest": "^29.7.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.4"
   }
 }
