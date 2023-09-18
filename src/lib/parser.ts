@@ -1,9 +1,10 @@
 import { isJSON } from "valdie";
-import { InvalidJSON } from "./utils/errors";
-import { ParsedJSON } from "./interfaces/json.interface";
+import { ParsedJSON } from "../interfaces/json.interface";
+import { InvalidJSON } from "../utils/errors";
 
 export default function parser(jsonString: string): ParsedJSON {
   try {
+    console.log(jsonString);
     const jsonData = JSON.parse(jsonString);
 
     if (!isJSON(jsonData)) {
@@ -27,7 +28,10 @@ export default function parser(jsonString: string): ParsedJSON {
 
     parseObject(jsonData);
 
-    return { keys, values };
+    console.log(keys, values);
+    const valueString = values.join("").replace(/\s/g, "");
+    console.log("Value String",valueString);
+    return { keys, values, valueString };
   } catch (error: any) {
     throw new InvalidJSON("Invalid JSON provided: " + error.message);
   }
