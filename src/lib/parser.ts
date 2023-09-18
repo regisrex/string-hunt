@@ -4,7 +4,6 @@ import { InvalidJSON } from "../utils/errors";
 
 export default function parser(jsonString: string): ParsedJSON {
   try {
-    console.log(jsonString);
     const jsonData = JSON.parse(jsonString);
 
     if (!isJSON(jsonData)) {
@@ -28,9 +27,7 @@ export default function parser(jsonString: string): ParsedJSON {
 
     parseObject(jsonData);
 
-    console.log(keys, values);
     const valueString = values.join("").replace(/\s/g, "");
-    console.log("Value String",valueString);
     return { keys, values, valueString };
   } catch (error: any) {
     throw new InvalidJSON("Invalid JSON provided: " + error.message);
