@@ -1,1 +1,5 @@
-/src/utils/testDATA.js
+/src/utils/testDATA.ts
+/test
+/.husky
+/coverage
+/node_modules

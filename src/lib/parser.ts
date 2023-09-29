@@ -2,35 +2,32 @@ import { isArray, isJSON } from "valdie";
 import { ParsedJSON } from "../interfaces/json.interface";
 import { InvalidJSON } from "../utils/errors";
 
-interface ParsedObject {
-  keys: string[];
-  values: string[];
-  valueString: string;
-}
+const indexer = (parsedStringArr: string[]): ParsedJSON[] => {
+  return parsedStringArr.map((parsedString, index) => ({
+    index,
+    value: parsedString,
+  }));
+};
 
-const parseObject = (obj: Record<string, unknown>, parentKey?: string): ParsedObject => {
-  const keys: string[] = [];
+const parseObject = (obj: Record<string, unknown>, parentKey?: string): string => {
   const values: string[] = [];
 
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       const currentKey = parentKey ? `${parentKey}.${key}` : key;
       if (typeof obj[key] === "object" && obj[key] !== null) {
-        const { keys: subKeys, values: subValues } = parseObject(
-          obj[key] as Record<string, unknown>,
-          currentKey
-        );
-        keys.push(...subKeys);
+        const subValues = parseObject(obj[key] as Record<string, unknown>, currentKey);
         values.push(...subValues);
       } else {
-        keys.push(currentKey);
         values.push(String(obj[key]));
       }
     }
   }
 
-  const valueString = values.join("").replace(/\s/g, "");
-  return { keys, values, valueString };
+  // Combine all values with their keys
+  const combinedValue = values.join("");
+
+  return combinedValue.replace(/\s/g, ""); // remove any space and then return.
 };
 
 export default function parser(jsonStrings: string[]): ParsedJSON[] {
@@ -40,19 +37,19 @@ export default function parser(jsonStrings: string[]): ParsedJSON[] {
     }
 
     const jsonObjects: Record<string, unknown>[] = jsonStrings.map((jsonString: string) => {
-      return JSON.parse(jsonString);
+      const parsedString: Record<string, unknown> = JSON.parse(jsonString);
+      return parsedString;
     });
 
     if (jsonObjects.some((obj) => !isJSON(obj))) {
       throw new InvalidJSON("Invalid JSON provided");
     }
 
-    const parsedValuesArr: ParsedJSON[] = jsonObjects.map((obj: Record<string, unknown>) => {
-      const { keys, values, valueString } = parseObject(obj);
-      return { keys, values, valueString };
+    const parsedValuesArr: string[] = jsonObjects.map((obj: Record<string, unknown>) => {
+      return parseObject(obj);
     });
 
-    return parsedValuesArr;
+    return indexer(parsedValuesArr);
   } catch (error: any) {
     throw new InvalidJSON("Invalid JSON provided: " + error.message);
   }
