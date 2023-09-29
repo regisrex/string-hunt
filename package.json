@@ -15,7 +15,7 @@
   "author": "Murangwa Pacifique && Ndizihiwe Regis",
   "scripts": {
     "build": "vitest && tsc",
-    "test": "vitest --no-watch",
+    "test": "vitest  --no-watch",
     "test:dev": "vitest --watch",
     "test:coverage": "vitest run --coverage",
     "prepare": "husky install",
