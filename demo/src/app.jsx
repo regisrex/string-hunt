@@ -1,4 +1,4 @@
-import search from 'ftsa'
+import search from 'string-hunt'
 import { useEffect, useState } from 'preact/hooks'
 import FormatJson from './components/jsonFormatter'
 

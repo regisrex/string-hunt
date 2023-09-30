@@ -10,11 +10,10 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
-    "ftsa": "file:../ftsa-0.0.0.tgz",
     "postcss": "^8.4.31",
     "preact": "^10.16.0",
     "react-json-formatter": "^0.4.0",
-    "string-hunt": "file:../string-hunt-0.0.1.tgz",
+    "string-hunt": "^0.0.3",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
