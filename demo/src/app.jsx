@@ -27,7 +27,7 @@ export function App() {
   return (
     <div className='bg-background min-h-screen p-10 font-fira'>
       <div className='text-white py-4 flex items-center justify-between'>
-        <h1>📦 string-hunt v0.0.1</h1>
+        <h1>📦 string-hunt v0.0.3</h1>
         <div className='flex items-center gap-4'>
           <a>Github</a>
           <a>npm</a>
