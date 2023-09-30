@@ -1,11 +1,11 @@
 import { ParsedJSON } from "../interfaces/json.interface";
 import parser from "./parser";
 
-export default function search(query: string, jsonArray: any[]) {
+export default function search(query: string, jsonArray: any[]) : unknown[] {
     const fined = query.toLocaleLowerCase();
     const parsedData = parser(jsonArray);
     const results = recursiveSearch(fined, parsedData);
-    const result = results.map((result) =>  jsonArray[result.index]);
+    const result = results.map((result) =>  JSON.parse(jsonArray[result.index]));
     return result;
 }
 
