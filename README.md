@@ -1,15 +1,15 @@
 # Full Text Search Algorithm
 ___
 
-A simple implementation of finding text search results from JSON data.
+Text search algorithm for searching through a list of JSON objects
 
 ```bash
-$  yarn add ftsa
+$  yarn add string-hunt
 ```
 
 ## Usage
 ```Javascript
-const { search }  = require('ftsa')
+const search  = require('string-hunt')
 
 const data = [
     {
@@ -21,7 +21,8 @@ const data = [
         age :  10
     }
 ]
-(async () => {
+
+(() => {
     const results = search(data.map(datum => JSON.stringify(datum)), 'rick0')
     console.log(results.length)    // 2
 })()
