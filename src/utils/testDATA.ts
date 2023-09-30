@@ -25,9 +25,9 @@ export const validJsonObject = [{
 
 export const validParsedObject:ParsedJSON[] = [{
   index: 0,
-  value: "Alice28123MainStS9am0pl8evi9ll8e12345readingswimminggardeningtrue"
+  value: "alice28123mainsts9am0pl8evi9ll8e12345readingswimminggardeningtrue"
 },
 {
   index: 1,
-  value: "Alice28123MainStS9am0pl8evi9ll8e12345readingswimminggardeningtrue"
+  value: "alice28123mainsts9am0pl8evi9ll8e12345readingswimminggardeningtrue"
 }];

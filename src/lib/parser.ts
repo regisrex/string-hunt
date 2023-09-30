@@ -27,7 +27,7 @@ const parseObject = (obj: Record<string, unknown>, parentKey?: string): string =
   // Combine all values with their keys
   const combinedValue = values.join("");
 
-  return combinedValue.replace(/\s/g, ""); // remove any space and then return.
+  return combinedValue.replace(/\s/g, "").toLowerCase(); // remove any space and then return.
 };
 
 export default function parser(jsonStrings: string[]): ParsedJSON[] {
