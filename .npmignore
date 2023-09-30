@@ -2,4 +2,7 @@
 /test
 /.husky
 /coverage
+/demo
+/src
+/*.tgz
 /node_modules
