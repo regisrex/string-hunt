@@ -1,0 +1,24 @@
+{
+  "name": "test-ftsa",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "ftsa": "file:../ftsa-0.0.0.tgz",
+    "postcss": "^8.4.31",
+    "preact": "^10.16.0",
+    "react-json-formatter": "^0.4.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.5.0",
+    "npm-packlist": "^8.0.0",
+    "vite": "^4.4.5"
+  }
+}
