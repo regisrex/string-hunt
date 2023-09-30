@@ -1,6 +1,6 @@
 {
-  "name": "ftsa",
-  "version": "0.0.0",
+  "name": "string-hunt",
+  "version": "0.0.1",
   "description": "Full Text Search Algorithm",
   "main": "index.ts",
   "repository": "https://github.com/pacifiquem/ftsa.git",
@@ -14,12 +14,13 @@
   ],
   "author": "Murangwa Pacifique && Ndizihiwe Regis",
   "scripts": {
-    "build": "vitest && tsc",
+    "build": "vitest --no-watch && tsc",
     "test": "vitest  --no-watch",
     "test:dev": "vitest --watch",
     "test:coverage": "vitest run --coverage",
     "prepare": "husky install",
-    "lint": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts --fix",
+    "prepack": "tsc"
   },
   "license": "MIT",
   "private": false,
