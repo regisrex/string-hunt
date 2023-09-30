@@ -13,7 +13,8 @@ describe("Search function", () => {
             }
         ];
 
-        const results  = search(query, jsonArray.map((o) => JSON.stringify(o)));
+        const results = search(query, jsonArray.map((o) => JSON.stringify(o)));
+        console.log(JSON.stringify(results))
         expect(results.length).toEqual(2);
     });
 
@@ -28,7 +29,8 @@ describe("Search function", () => {
             }
         ];
 
-        const results  = search(query, jsonArray.map((o) => JSON.stringify(o)));
+        const results = search(query, jsonArray.map((o) => JSON.stringify(o)));
+
         expect(results.length).toEqual(0);
     });
 
