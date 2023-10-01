@@ -17,6 +17,9 @@
     ],
     "rules": {
         "no-unused-vars": "error",
-        "@typescript-eslint/no-explicit-any": "off"
+        "@typescript-eslint/no-explicit-any": "off",
+        "no-unused-expressions": ["error", {
+            "allowTernary": true
+        }]      
     }
 }

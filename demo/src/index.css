@@ -6,3 +6,25 @@
 a{
     color: darkorange;
 }
+
+/* Define the scrollbar track */
+div::-webkit-scrollbar {
+    width: 5px; /* Adjust the width as needed */
+  }
+  
+  /* Define the scrollbar thumb */
+  div::-webkit-scrollbar-thumb {
+    background-color: orange; /* Change the color of the scrollbar thumb */
+    border-radius: 5px; /* Round the corners of the thumb */
+  }
+  
+  /* Define the scrollbar track (background) */
+  div::-webkit-scrollbar-track {
+    background-color: gray; /* Change the color of the scrollbar track */
+  }
+  
+  /* Define the scrollbar corner */
+  div::-webkit-scrollbar-corner {
+    background-color: transparent; /* Change the color of the scrollbar corner */
+  }
+  

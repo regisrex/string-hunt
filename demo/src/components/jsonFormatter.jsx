@@ -12,7 +12,7 @@ export default function FormatJson({ json, title }) {
 
     }
 
-    return <div className="p-10 bg-neutral-700 bg-opacity-30 ">
+    return <div className="p-10 bg-neutral-700 bg-opacity-30 h-[60vh] overflow-auto">
         <h1 className="text-3xl text-white font-semibold">{ title }</h1>
         <hr  className="my-4 opacity-10"/>
         <JsonFormatter json={json} tabWith={4} jsonStyle={jsonStyle} />
