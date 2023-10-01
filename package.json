@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "Full Text Search Algorithm",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/regisrex/string-hunt.git"
