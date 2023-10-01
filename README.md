@@ -29,7 +29,7 @@ const data = [
 
 ```
 ## Contributing
-Contributors are welcomed, you can contribute by  opening an issue or making a pull request (with is better 😀).
+Contributors are welcomed, you can contribute by  opening an issue or making a pull request (which is better 😀).
 
 ## Maintainers 
 It is maintained by [@pacifiquem](https://github.com/pacifiquem) and [@regisrex](https://github.com/regisrex)
