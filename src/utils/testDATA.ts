@@ -1,3 +1,9 @@
+/**
+ *  Full text search algorithm
+ *  ----
+ *  By [@pacifiquem](https://github.com/pacifiquem) and [@regisrex](https://github.com/regisrex)
+*/
+
 import { ParsedJSON } from "../interfaces/json.interface"
 
 export const validJsonObject = [{

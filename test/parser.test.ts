@@ -1,3 +1,10 @@
+/**
+ *  Full text search algorithm
+ *  ----
+ *  By [@pacifiquem](https://github.com/pacifiquem) and [@regisrex](https://github.com/regisrex)
+*/
+
+
 import { describe, expect, it } from 'vitest';
 import parser from "../src/lib/parser";
 import { InvalidJSON } from '../src/utils/errors';
