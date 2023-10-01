@@ -1,6 +1,6 @@
 {
   "name": "string-hunt",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Full Text Search Algorithm",
   "main": "dist/index.js",
   "repository": {
