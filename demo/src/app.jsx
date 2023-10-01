@@ -1,19 +1,7 @@
 import search from 'string-hunt'
 import { useEffect, useState } from 'preact/hooks'
 import FormatJson from './components/jsonFormatter'
-
-const data = [
-  {
-    name: "John doe",
-    date: "10/10/2020",
-    age: 12
-  },
-  {
-    name: "Ivan doe",
-    date: "10/10/2020",
-    age: 14
-  },
-]
+import data from './utils/data'
 
 export function App() {
   const [query, setQuery] = useState("")
