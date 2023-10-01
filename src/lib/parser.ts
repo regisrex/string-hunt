@@ -1,3 +1,10 @@
+/**
+ *  Full text search algorithm
+ *  ----
+ *  By [@pacifiquem](https://github.com/pacifiquem) and [@regisrex](https://github.com/regisrex)
+*/
+
+
 import { isArray, isJSON } from "valdie";
 import { ParsedJSON } from "../interfaces/json.interface";
 import { InvalidJSON } from "../utils/errors";
