@@ -17,15 +17,17 @@ describe("Parser Function", () => {
         const validJSONs: string[] = validJsonObject.map((obj) => {
           return JSON.stringify(obj);
         })
-        expect(parser(validJSONs)).toEqual(validParsedObject)
+        const keys: string[] = [ 'name', 'age', 'address', 'hobbies', 'isActive' ];
+        expect(parser(validJSONs, keys)).toEqual(validParsedObject)
     
     });
 
     it('should include the error message for invalid JSON', () => {
         const invalidJsonString = ['invalid-json', 'invalid-json2']; // Provide an invalid JSON string
+        const keys: string[] = [ 'name', 'age', 'address', 'hobbies', 'isActive' ];
     
         try {
-          parser(invalidJsonString);
+          parser(invalidJsonString, keys);
         } catch (error: any) {
           expect(error).toBeInstanceOf(InvalidJSON);
           expect(error.message).toContain('Invalid JSON provided');
