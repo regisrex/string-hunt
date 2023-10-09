@@ -7,9 +7,9 @@
 import { ParsedJSON } from "../interfaces/json.interface";
 import parser from "./parser";
 
-export default function search(query: string, jsonArray: any[]) : unknown[] {
-    const fined = query.toLocaleLowerCase();
-    const parsedData = parser(jsonArray);
+export default function search(query: string, jsonArray: any[], keys: string[]) : unknown[] {
+    const fined = query.replace(/\s/g, "").toLowerCase(); // remove any space from query and make it lower-case
+    const parsedData = parser(jsonArray, keys);
     const results = recursiveSearch(fined, parsedData);
     const result = results.map((result) =>  JSON.parse(jsonArray[result.index]));
     return result;
