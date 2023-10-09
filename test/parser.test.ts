@@ -22,6 +22,15 @@ describe("Parser Function", () => {
     
     });
 
+    it("should return a parsed json even when there are no keys specified", () => {
+
+      const validJSONs: string[] = validJsonObject.map((obj) => {
+        return JSON.stringify(obj);
+      })
+      expect(parser(validJSONs)).toEqual(validParsedObject)
+  
+  });
+
     it('should include the error message for invalid JSON', () => {
         const invalidJsonString = ['invalid-json', 'invalid-json2']; // Provide an invalid JSON string
         const keys: string[] = [ 'name', 'age', 'address', 'hobbies', 'isActive' ];

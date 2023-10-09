@@ -10,7 +10,7 @@ import { ParsedJSON } from "../interfaces/json.interface";
 import { InvalidJSON } from "../utils/errors";
 import { extractKeys, parseObject, indexer } from "../utils/helper";
 
-export default function parser(jsonStrings: string[], keys: string[]): ParsedJSON[] {
+export default function parser(jsonStrings: string[], keys?: string[]): ParsedJSON[] {
   try {
     if (!isArray(jsonStrings)) {
       throw new TypeError(`Expected an array of strings but received ${typeof jsonStrings}`);
@@ -21,7 +21,11 @@ export default function parser(jsonStrings: string[], keys: string[]): ParsedJSO
       return parsedString;
     });
 
-    const desiredKeysObject: Record<string, unknown>[] = extractKeys(jsonObjects, keys);
+    let desiredKeysObject:Record<string, unknown>[] = jsonObjects;
+
+    if(keys != undefined) {
+      desiredKeysObject = extractKeys(jsonObjects, keys);
+    }
 
     if (desiredKeysObject.some((obj) => !isJSON(obj))) {
       throw new InvalidJSON("Invalid JSON provided");
