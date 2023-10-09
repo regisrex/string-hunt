@@ -1,7 +1,7 @@
-# Full Text Search Algorithm
-___
+## 📦 string-hunt
+Fast text searching algorithms for small scale data
 
-Text search algorithm for searching through a list of JSON objects
+[![ci](https://github.com/regisrex/string-hunt/actions/workflows/ci.yml/badge.svg)](https://github.com/regisrex/string-hunt/actions/workflows/ci.yml)
 
 ```bash
 $  yarn add string-hunt
