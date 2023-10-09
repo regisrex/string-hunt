@@ -25,7 +25,6 @@ export default function parser(jsonStrings: string[], keys?: string[]): ParsedJS
 
     if(keys != undefined) {
       desiredKeysObject = extractKeys(jsonObjects, keys);
-      console.log("run");
     }
 
     if (desiredKeysObject.some((obj) => !isJSON(obj))) {
