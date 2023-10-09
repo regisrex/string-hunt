@@ -28,6 +28,8 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
+      - run: npm install 
+      - run: npm build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.STRING_HUNT_NPM_SECRET}}
